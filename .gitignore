@@ -1,0 +1,32 @@
+# Arquivos de compilação Java
+*.class
+
+# Arquivos de configuração do Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Arquivos de configuração do IntelliJ IDEA
+.idea/
+
+# Arquivos de configuração do Eclipse
+.classpath
+.project
+.settings/
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+
+# Arquivos de compilação
+bin/
+
+# Arquivos de dependências e artefatos compilados
+*.jar
+*.war
+*.ear
+
+# Arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
