@@ -12,7 +12,7 @@ Os desafios são estruturados de forma a proporcionar uma experiência de aprend
 
 ## Nível 1: Fundamentos Java
 
-1. **Calculadora Simples**: Crie um programa que calcule a soma de dois números.
+1. **Calculadora Simples**: Crie um programa que faça operações matematicas..
 2. **Verificador de Paridade**: Desenvolva um programa para verificar se um número é par ou ímpar.
 3. **Ordenação de Lista**: Implemente um algoritmo para ordenar uma lista de inteiros.
 4. **Verificador de Palíndromo**: Crie uma função para verificar se uma string é um palíndromo.
