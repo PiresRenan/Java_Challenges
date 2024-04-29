@@ -27,6 +27,9 @@ bin/
 *.war
 *.ear
 
+# Arquivos .gitignore extras
+**/.gitignore
+
 # Arquivos de configuração do sistema
 .DS_Store
 Thumbs.db
