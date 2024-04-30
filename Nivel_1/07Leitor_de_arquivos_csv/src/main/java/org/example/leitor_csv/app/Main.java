@@ -1,33 +1,35 @@
 package org.example.leitor_csv.app;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
-
-import org.example.leitor_csv.leitor.LeitorCSV;
+import java.io.IOException;
+import java.util.Objects;
 
 import com.opencsv.exceptions.CsvException;
 
-import java.io.IOException;
+import org.example.leitor_csv.leitor.LeitorCSV;
+import org.example.leitor_csv.model.Data;
 
 public class Main {
     public static void main(String[] args) {
-        String arquivoCSV = "kid_iq.csv";
+        try {
+            LeitorCSV leitor = new LeitorCSV("kid_iq.csv");
 
-        try (InputStream inputStream = Main.class.getClassLoader().getResourceAsStream(arquivoCSV)) {
-            if (inputStream == null) {
-                throw new IOException("Arquivo não encontrado: " + arquivoCSV);
+            List<Data> linhas = leitor.readDataFromCSV();
+            for (Data data : linhas) {
+                if (data.getIndex() < 4) {
+                    System.out.println(data);
+                }
             }
 
-            List<String[]> linhas = LeitorCSV.lerCSV(String.valueOf(new InputStreamReader(inputStream)));
-            for (String[] linha : linhas) {
-                for (String dado : linha) {
-                    System.out.print(dado + "\t");
+            List<String[]> all_csv = leitor.lerCSV();
+            for (String[] row : all_csv) {
+                if (Objects.equals(row[0], "") || Integer.parseInt(row[0]) < 4) {
+                    System.out.println(Arrays.toString(row));
                 }
-                System.out.println();
             }
         } catch (IOException | CsvException e) {
-            e.printStackTrace();
+            System.err.println("Erro ao processar o arquivo CSV: " + e.getMessage());
         }
     }
 }
