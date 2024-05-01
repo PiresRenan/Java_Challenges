@@ -1,9 +1,7 @@
 package org.example.crud;
 
 import org.example.crud.usuarios.model.User;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
@@ -45,7 +43,9 @@ public class UserTest {
 
         assertThrows(IllegalArgumentException.class, () -> user.setPassword(null));
         assertThrows(IllegalArgumentException.class, () -> user.setPassword(""));
-        assertThrows(IllegalArgumentException.class, () -> user.setPassword("short"));
+        assertThrows(IllegalArgumentException.class, () -> user.setPassword("short")); // Less than 8 characters
+
+        // Test valid password setting (already covered in testUserCreation)
     }
 
 }

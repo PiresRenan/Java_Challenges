@@ -24,7 +24,7 @@ class UserDAOImplTest {
 
     @Test
     void testGetUserById() {
-        User user = userDao.getUserById(1);
+        User user = userDao.getUserById(4);
 
         assertEquals(user.getName(), user1.getName());
         assertEquals(user.getEmail(), user1.getEmail());
@@ -77,20 +77,20 @@ class UserDAOImplTest {
     @Test
     void testUpdateUserEmail() {
         userDao.updateUser("novoteste@example.com", 3, "fulanodetal@exemplo.com");
-        User updatedUser = userDao.getUserById(1);
+        User updatedUser = userDao.getUserById(4);
         assertEquals("novoteste@example.com", updatedUser.getEmail());
         userDao.updateUser("fulanodetal@exemplo.com", 3, "novoteste@example.com");
-        updatedUser = userDao.getUserById(1);
+        updatedUser = userDao.getUserById(4);
         assertEquals("fulanodetal@exemplo.com", updatedUser.getEmail());
     }
 
     @Test
     void testUpdateUserPassword() {
         userDao.updateUser("novasenha", 4, "fulanodetal@exemplo.com");
-        User updatedUser = userDao.getUserById(1);
+        User updatedUser = userDao.getUserById(4);
         assertEquals("novasenha", updatedUser.getPassword());
         userDao.updateUser("senhasegura", 4, "fulanodetal@exemplo.com");
-        updatedUser = userDao.getUserById(1);
+        updatedUser = userDao.getUserById(4);
         assertEquals("senhasegura", updatedUser.getPassword());
     }
 

@@ -43,6 +43,16 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public User getUserByEmail(String email) {
+        String sql = "SELECT * FROM users WHERE email = ?";
+        try {
+            return jdbcTemplate.queryForObject(sql, new Object[]{email}, new UserRowMapper());
+        } catch (DataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
     public List<User> getAllUsers() {
         String sql = "SELECT * FROM users";
         return jdbcTemplate.query(sql, new UserRowMapper());
